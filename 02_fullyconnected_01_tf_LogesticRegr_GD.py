@@ -96,8 +96,8 @@ with graph.as_default():
   # it's very common, and it can be optimized). We take the average of this
   # cross-entropy across all training examples: that's our loss.
   logits = tf.matmul(tf_train_dataset, weights) + biases
-  loss = tf.reduce_mean(
-    tf.nn.softmax_cross_entropy_with_logits(logits, tf_train_labels))
+  loss = tf.reduce_mean(tf.nn.softmax_cross_entropy_with_logits(
+    logits=logits, labels=tf_train_labels))
   
   # Optimizer.
   # We are going to find the minimum of this loss using gradient descent.

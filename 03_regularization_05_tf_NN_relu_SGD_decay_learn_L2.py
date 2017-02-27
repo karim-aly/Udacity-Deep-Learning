@@ -105,8 +105,8 @@ with graph.as_default():
   l2_loss = tf_regulariztion*tf.nn.l2_loss(hidden_weights) +\
     tf_regulariztion*tf.nn.l2_loss(out_weights)
 
-  loss = tf.reduce_mean(
-    tf.nn.softmax_cross_entropy_with_logits(logits, tf_train_labels) + l2_loss)
+  loss = tf.reduce_mean(tf.nn.softmax_cross_entropy_with_logits(
+    logits=logits, labels=tf_train_labels) + l2_loss)
   
   # Optimizer. (Gradient Descent with exponential decay learning rate)
   global_step = tf.Variable(0, trainable=False)  # count the number of steps taken
