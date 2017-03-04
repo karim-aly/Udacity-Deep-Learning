@@ -130,7 +130,7 @@ with graph.as_default():
     return tf.matmul(hidden, layer5_weights) + layer5_biases
   
   # Training computation.
-  droput_keep_prob = 1.0
+  droput_keep_prob = 0.5
   logits = model(tf_train_dataset, droput_keep_prob)
 
   # L2 Regulariztion Loss
